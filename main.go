@@ -9,6 +9,7 @@ import (
 )
 
 var wayMap map[string]Queue
+var queue Queue
 
 //var wayMap sync.Map
 
