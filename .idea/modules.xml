@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/TrainMQ.iml" filepath="$PROJECT_DIR$/.idea/TrainMQ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/train-mq.iml" filepath="$PROJECT_DIR$/.idea/train-mq.iml" />
     </modules>
   </component>
 </project>

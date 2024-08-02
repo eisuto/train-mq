@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="04030414-b36d-4662-909c-16d7b690d38b" name="Default Changelist" comment="" />
+    <list default="true" id="04030414-b36d-4662-909c-16d7b690d38b" name="Default Changelist" comment="Default Changelist">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/consume.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/publish.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/message.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/response.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/queue/queue.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/ip_utils.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TrainMQ.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/train-mq.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity/info.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity/queue.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/consumer.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/producer.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service.go" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,111 +38,112 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="C:\Program Files\Go" />
+  <component name="GOROOT" url="file://C:/Program Files/Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="1yRWArtXneH7GLKkyi3E7Jcc6EK" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DefaultGoTemplateProperty" value="Go File" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="yiiguxing.plugin.translate" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "Go 构建.go build TrainMQ.executor": "Run",
+    "Go 构建.go build trainMQ.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/project/github/train-mq",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "项目",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.49080458",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Project\TrainMQ" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go 构建.go build trainMQ">
     <configuration name="go build TrainMQ" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="TrainMQ" />
+      <module name="train-mq" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/main.go" />
       <package value="TrainMQ" />
       <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build trainMQ" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="train-mq" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="trainMQ" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/main.go" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build TrainMQ" />
+        <item itemvalue="Go 构建.go build trainMQ" />
+        <item itemvalue="Go 构建.go build TrainMQ" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <created>1722418941112</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1722418941112</updated>
+      <workItem from="1722418942106" duration="1567000" />
+      <workItem from="1722502923163" duration="352000" />
+      <workItem from="1722503315239" duration="2801000" />
+      <workItem from="1722585484010" duration="8365000" />
+      <workItem from="1722605194602" duration="1082000" />
+    </task>
+    <servers />
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="VgoProject">
-    <integration-enabled>true</integration-enabled>
-    <proxy>https://goproxy.cn</proxy>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="617" y="214" key="#HTTP_Proxy" timestamp="1632277326485">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="617" y="214" key="#HTTP_Proxy/0.0.2048.1112@0.0.2048.1112" timestamp="1632277326485" />
-    <state x="830" y="272" key="#com.intellij.ide.util.MemberChooser" timestamp="1632278369366">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="830" y="272" key="#com.intellij.ide.util.MemberChooser/0.0.2048.1112@0.0.2048.1112" timestamp="1632278369366" />
-    <state width="2005" height="425" key="GridCell.Tab.0.bottom" timestamp="1632379898501">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="425" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1632379898501" />
-    <state width="2005" height="425" key="GridCell.Tab.0.center" timestamp="1632379898501">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="425" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1632379898501" />
-    <state width="2005" height="425" key="GridCell.Tab.0.left" timestamp="1632379898500">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="425" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1632379898500" />
-    <state width="2005" height="425" key="GridCell.Tab.0.right" timestamp="1632379898501">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="425" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1632379898501" />
-    <state width="2005" height="376" key="GridCell.Tab.1.bottom" timestamp="1632312701246">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="376" key="GridCell.Tab.1.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1632312701246" />
-    <state width="2005" height="376" key="GridCell.Tab.1.center" timestamp="1632312701246">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="376" key="GridCell.Tab.1.center/0.0.2048.1112@0.0.2048.1112" timestamp="1632312701246" />
-    <state width="2005" height="376" key="GridCell.Tab.1.left" timestamp="1632312701246">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="376" key="GridCell.Tab.1.left/0.0.2048.1112@0.0.2048.1112" timestamp="1632312701246" />
-    <state width="2005" height="376" key="GridCell.Tab.1.right" timestamp="1632312701246">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="376" key="GridCell.Tab.1.right/0.0.2048.1112@0.0.2048.1112" timestamp="1632312701246" />
-    <state x="526" y="198" key="SettingsEditor" timestamp="1632277444185">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="526" y="198" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1632277444185" />
-    <state x="703" y="155" width="642" height="801" key="find.popup" timestamp="1632310328395">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="703" y="155" width="642" height="801" key="find.popup/0.0.2048.1112@0.0.2048.1112" timestamp="1632310328395" />
-    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup" timestamp="1632298823114">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112@0.0.2048.1112" timestamp="1632298823114" />
+    <settings-migrated>true</settings-migrated>
   </component>
 </project>
