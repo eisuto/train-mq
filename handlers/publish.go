@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/google/uuid"
+	"log"
 	"net/http"
 	"strings"
 	"trainMQ/models"
@@ -30,7 +30,7 @@ func PublishHandler(queue *queue.MessageQueue) http.HandlerFunc {
 		// 响应并记录日志
 		clientIP := utils.GetClientIp(r)
 		models.WriteSuccessResponse(w, "Published message successfully", msg)
-		fmt.Printf("Client IP: %s - Published message ID: %s, Topic: %s, Content: %s\n", clientIP, msg.ID, msg.Topic, msg.Content)
+		log.Printf("Client IP: %s - Published message ID: %s, Topic: %s, Content: %s\n", clientIP, msg.ID, msg.Topic, msg.Content)
 
 	}
 }

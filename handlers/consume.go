@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"fmt"
+	"log"
 	"net/http"
 	"trainMQ/models"
 	"trainMQ/queue"
@@ -30,10 +30,10 @@ func ConsumeHandler(queue *queue.MessageQueue) http.HandlerFunc {
 		clientIp := utils.GetClientIp(r)
 		if ok {
 			models.WriteSuccessResponse(w, "Consumed message successfully", msg)
-			fmt.Printf("Client IP: %s - Consumed message ID: %s, Topic: %s, Content: %s\n", clientIp, msg.ID, msg.Topic, msg.Content)
+			log.Printf("Client IP: %s - Consumed message ID: %s, Topic: %s, Content: %s\n", clientIp, msg.ID, msg.Topic, msg.Content)
 		} else {
 			models.WriteSuccessResponse(w, "No messages available for topic: "+topic, []int{})
-			fmt.Printf("Client IP: %s - No messages available for topic: %s\n", clientIp, topic)
+			log.Printf("Client IP: %s - No messages available for topic: %s\n", clientIp, topic)
 			return
 		}
 
