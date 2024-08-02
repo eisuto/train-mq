@@ -19,7 +19,7 @@ func ConsumeHandler(queue *queue.MessageQueue) http.HandlerFunc {
 		// 获取主题参数
 		topic := r.URL.Query().Get("topic")
 		if topic == "" {
-			models.WriteErrorResponse(w, models.ParameterError, "Topic parameter is missing", nil)
+			models.WriteErrorResponse(w, http.StatusBadRequest, "Topic parameter is missing", nil)
 			return
 		}
 
@@ -32,7 +32,7 @@ func ConsumeHandler(queue *queue.MessageQueue) http.HandlerFunc {
 			models.WriteSuccessResponse(w, "Consumed message successfully", msg)
 			fmt.Printf("Client IP: %s - Consumed message ID: %s, Topic: %s, Content: %s\n", clientIp, msg.ID, msg.Topic, msg.Content)
 		} else {
-			models.WriteErrorResponse(w, models.NoMessage, "No messages available for topic: "+topic, []int{})
+			models.WriteSuccessResponse(w, "No messages available for topic: "+topic, []int{})
 			fmt.Printf("Client IP: %s - No messages available for topic: %s\n", clientIp, topic)
 			return
 		}

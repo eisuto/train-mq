@@ -8,17 +8,15 @@ import (
 	"trainMQ/queue"
 )
 
-//var wayMap sync.Map
-
 func main() {
 	fmt.Println(`
-/__  ___/                              /|    //| |     //    ) ) 
-   / /   __      ___     ( )   __     //|   // | |    //    / /  
-  / /  //  ) ) //   ) ) / / //   ) ) // |  //  | |   //    / /   
- / /  //      //   / / / / //   / / //  | //   | |  //  \ \ /    
-/ /  //      ((___( ( / / //   / / //   |//    | | ((____\ \
-
-Launch successful! Now listening on port: 5757`)
+	/__  ___/                              /|    //| |     //    ) ) 
+	   / /   __      ___     ( )   __     //|   // | |    //    / /  
+	  / /  //  ) ) //   ) ) / / //   ) ) // |  //  | |   //    / /   
+	 / /  //      //   / / / / //   / / //  | //   | |  //  \ \ /    
+	/ /  //      ((___( ( / / //   / / //   |//    | | ((____\ \
+	
+	Launch successful! Now listening on port: 5757`)
 
 	messageQueue := queue.NewMessageQueue()
 

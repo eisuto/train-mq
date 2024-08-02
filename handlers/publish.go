@@ -20,7 +20,7 @@ func PublishHandler(queue *queue.MessageQueue) http.HandlerFunc {
 		}
 		var msg models.Message
 		if err := json.NewDecoder(r.Body).Decode(&msg); err != nil {
-			models.WriteErrorResponse(w, models.InvalidRequestBody, "Invalid request body", nil)
+			models.WriteErrorResponse(w, http.StatusBadRequest, "Invalid request body", nil)
 			return
 		}
 		// 生成唯一ID
