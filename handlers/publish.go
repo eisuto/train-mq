@@ -6,9 +6,9 @@ import (
 	"log"
 	"net/http"
 	"strings"
-	"trainMQ/models"
-	"trainMQ/queue"
-	"trainMQ/utils"
+	"train-mq/models"
+	"train-mq/queue"
+	"train-mq/utils"
 )
 
 // PublishHandler 发布请求处理

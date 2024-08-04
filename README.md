@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="#">
-    <img src="https://img.shields.io/badge/version-0.0.1-blue">
+    <img src="https://img.shields.io/badge/version-0.0.2-blue">
   </a>
   <a href="#">
       <img src="https://img.shields.io/badge/build-passing-brightgreen">
@@ -18,56 +18,48 @@
 </p>
 
 ## ✨特性
-- 🪁轻量级
-- 🛳高吞吐量
-- 📦开箱即用
-- 🖇双模式：🍕分食模式 📰订阅模式
+- 轻量级
+- 高吞吐量
+- 开箱即用
+
+## 📝 TODO
+- [ ] 消息确认机制
+- [ ] 消息优先级
+- [ ] 多节点：动态节点加入移除，节点间复制与同步
+- [ ] 一致性：多节点消息保持一致性
+- [ ] 去中心化：无主节点的拓扑结构
+- [ ] 监控：提供 Web 监控界面
+- [ ] 延迟队列
+- [ ] 消息持久化
+
 ## 🛠部署
-
 下载适用于您目标机器操作系统的主程序，直接运行即可。
-
 ```shell script
 # 解压
-tar -zxvf trainMQ-amd64-linux-v0.0.1-alpha.tar.gz
+tar -zxvf train-mq-amd64-linux-v0.0.2.tar.gz
 
 # 赋予执行权限
-chmod +x ./trainMQ-linux-amd64
+chmod +x ./train-mq-0.0.2
 
 # 启动
-./TrainMQ-linux-amd64
+./train-mq-0.0.2
 ```
 
 ## 🚀 使用方法
-### 📥 发布消息
-发送 POST 请求到 /publish 端点，使用以下 JSON 请求体：
+###  📤发布消息
+发送 POST 请求到 /publish ，使用以下 JSON 请求体：
 ```json
 {
-  "content": "Hello! TrainMQ!",
+  "content": "Hello,TrainMQ!",
   "topic": "test_topic"
 }
 ```
-- 写入操作
+###  📥消费消息
+发送 GET 请求到 /consume ，并在查询参数中指定主题
 ```java
-// 分食模式
-TrainExecutor.send("{'msg':'内容，一般为json'}");
-// 订阅模式
-TrainExecutor.send("{'msg':'内容，一般为json'}","主题233");
+GET /consume?topic=test_topic
 ```
 
-- 读取操作
-```java
-// 分食模式
-String jsonMsg = TrainExecutor.get();
-// 订阅模式
-String jsonMsg = TrainExecutor.get("主题233");
-```
-- 修改默认设置
-```javas
-// 修改端口 默认5757
-TrainExecutor.setDefaultPort("2323");
-// 修改地址 默认127.0.0.1
-TrainExecutor.setDefaultIp("127.0.0.2");
-```
 
 ## 🤝 贡献
 欢迎贡献！请 fork 本仓库并提交 pull request。

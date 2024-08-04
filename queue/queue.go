@@ -2,7 +2,7 @@ package queue
 
 import (
 	"sync"
-	"trainMQ/models"
+	"train-mq/models"
 )
 
 // MessageQueue 消息队列

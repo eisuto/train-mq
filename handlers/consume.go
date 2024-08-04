@@ -3,9 +3,9 @@ package handlers
 import (
 	"log"
 	"net/http"
-	"trainMQ/models"
-	"trainMQ/queue"
-	"trainMQ/utils"
+	"train-mq/models"
+	"train-mq/queue"
+	"train-mq/utils"
 )
 
 // ConsumeHandler 消息消费处理器
