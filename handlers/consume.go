@@ -22,16 +22,16 @@ func ConsumeHandler(queue *core.MainMessageQueue) http.HandlerFunc {
 			models.WriteErrorResponse(w, http.StatusBadRequest, "Topic parameter is missing", nil)
 			return
 		}
-		subId := r.URL.Query().Get("subId")
-		if subId == "" {
-			models.WriteErrorResponse(w, http.StatusBadRequest, "SubId parameter is missing", nil)
+		cid := r.URL.Query().Get("cid")
+		if cid == "" {
+			models.WriteErrorResponse(w, http.StatusBadRequest, "Cid parameter is missing", nil)
 			return
 		}
 		// 只有订阅了当前主题，才能消费
-		hasSubscriber := queue.HasSubscriber(topic, subId)
-		if !hasSubscriber {
-			models.WriteErrorResponse(w, http.StatusForbidden, "Subscriber is not registered for this topic", nil)
-			log.Printf("Subscriber: %s is not registered for topic: %s", subId, topic)
+		hasConsumer := queue.HasConsumer(topic, cid)
+		if !hasConsumer {
+			models.WriteErrorResponse(w, http.StatusForbidden, "Consumer is not registered for this topic", nil)
+			log.Printf("Consumer: %s is not registered for topic: %s", cid, topic)
 			return
 		}
 

@@ -8,8 +8,8 @@ import (
 
 // MainMessageQueue 可并发消息队列结构体
 type MainMessageQueue struct {
-	topics      sync.Map // 存储主题和对应的无锁队列
-	subscribers sync.Map // 存储主题和订阅者信息
+	topics    sync.Map // 存储主题和对应的无锁队列
+	consumers sync.Map // 存储主题和消费者信息
 }
 
 // NewMainMessageQueue 创建一个新的可并发消息队列
@@ -46,47 +46,47 @@ func (mmq *MainMessageQueue) Consume(topic string) (models.Message, bool) {
 	return queue.Dequeue()
 }
 
-// RegisterSubscriber 注册订阅者
-func (mmq *MainMessageQueue) RegisterSubscriber(topic string, subscriber models.Subscriber) {
-	log.Printf("Attempting to register subscriber: %v to topic: %s", subscriber, topic)
-	hasSubscriber := mmq.HasSubscriber(topic, subscriber.SubId)
-	if hasSubscriber {
+// RegisterConsumer 注册消费者
+func (mmq *MainMessageQueue) RegisterConsumer(topic string, consumer models.Consumer) {
+	log.Printf("Attempting to register consumer: %v to topic: %s", consumer, topic)
+	hasConsumer := mmq.HasConsumer(topic, consumer.Cid)
+	if hasConsumer {
 		// 如果已经订阅过则忽略
-		log.Printf("Subscriber: %v is already registered, ignoring", subscriber)
+		log.Printf("Consumer: %v is already registered, ignoring", consumer)
 		return
 	}
-	// 如果没有订阅过则添加订阅者信息
-	subscribers, _ := mmq.subscribers.Load(topic)
-	if subscribers == nil {
-		subscribers = make([]models.Subscriber, 0)
+	// 如果没有订阅过则添加消费者信息
+	consumers, _ := mmq.consumers.Load(topic)
+	if consumers == nil {
+		consumers = make([]models.Consumer, 0)
 	}
-	existingSubscribers := subscribers.([]models.Subscriber)
-	if existingSubscribers == nil {
-		existingSubscribers = make([]models.Subscriber, 0)
+	existingConsumers := consumers.([]models.Consumer)
+	if existingConsumers == nil {
+		existingConsumers = make([]models.Consumer, 0)
 	}
-	existingSubscribers = append(existingSubscribers, subscriber)
-	mmq.subscribers.Store(topic, existingSubscribers)
-	log.Printf("Successfully registered subscriber: %v to topic: %s", subscriber, topic)
+	existingConsumers = append(existingConsumers, consumer)
+	mmq.consumers.Store(topic, existingConsumers)
+	log.Printf("Successfully registered consumer: %v to topic: %s", consumer, topic)
 
 }
 
-// HasSubscriber 判断主题是否有指定订阅者
-func (mmq *MainMessageQueue) HasSubscriber(topic string, subId string) bool {
-	subscribers, _ := mmq.subscribers.Load(topic)
-	if subscribers == nil {
+// HasConsumer 判断主题是否有指定消费者
+func (mmq *MainMessageQueue) HasConsumer(topic string, cid string) bool {
+	consumers, _ := mmq.consumers.Load(topic)
+	if consumers == nil {
 		return false
 	}
-	existingSubscribers := subscribers.([]models.Subscriber)
-	for _, existingSubscriber := range existingSubscribers {
-		if existingSubscriber.SubId == subId {
+	existingConsumers := consumers.([]models.Consumer)
+	for _, existingConsumer := range existingConsumers {
+		if existingConsumer.Cid == cid {
 			return true
 		}
 	}
 	return false
 }
 
-// GetSubscribers 获取指定主题的所有订阅者
-func (mmq *MainMessageQueue) GetSubscribers(topic string) []models.Subscriber {
-	subscribers, _ := mmq.subscribers.Load(topic)
-	return subscribers.([]models.Subscriber)
+// GetConsumers 获取指定主题的所有消费者
+func (mmq *MainMessageQueue) GetConsumers(topic string) []models.Consumer {
+	consumers, _ := mmq.consumers.Load(topic)
+	return consumers.([]models.Consumer)
 }

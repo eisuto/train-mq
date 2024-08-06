@@ -15,26 +15,26 @@ import (
 func SubscribeHandler(queue *core.MainMessageQueue) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// 获取参数
-		var subscriber models.Subscriber
-		if err := json.NewDecoder(r.Body).Decode(&subscriber); err != nil {
+		var consumer models.Consumer
+		if err := json.NewDecoder(r.Body).Decode(&consumer); err != nil {
 			models.WriteErrorResponse(w, http.StatusBadRequest, "Invalid request payload", nil)
 			return
 		}
 		// 主题不存在不能订阅
-		_, ok := queue.GetQueue(subscriber.Topic)
+		_, ok := queue.GetQueue(consumer.Topic)
 		if !ok {
 			models.WriteErrorResponse(w, http.StatusNotFound, "Topic does not exist", nil)
-			log.Printf("Topic: %s does not exist, created and registered subscriber: %v", subscriber.Topic, subscriber)
+			log.Printf("Topic: %s does not exist, created and registered consumer: %v", consumer.Topic, consumer)
 			return
 		}
 		// 生成唯一ID
-		subscriber.SubId = strings.ReplaceAll(uuid.NewString(), "-", "")
-		// 注册订阅者
-		queue.RegisterSubscriber(subscriber.Topic, subscriber)
+		consumer.Cid = strings.ReplaceAll(uuid.NewString(), "-", "")
+		// 注册消费者
+		queue.RegisterConsumer(consumer.Topic, consumer)
 		// 响应并记录日志
 		clientIP := utils.GetClientIp(r)
-		models.WriteSuccessResponse(w, "Registered subscriber successfully", subscriber)
-		log.Printf("Client IP: %s - Registered subscriber ID: %s, Topic: %s\n", clientIP, subscriber.SubId, subscriber.Topic)
+		models.WriteSuccessResponse(w, "Registered consumer successfully", consumer)
+		log.Printf("Client IP: %s - Registered consumer ID: %s, Topic: %s\n", clientIP, consumer.Cid, consumer.Topic)
 
 	}
 }

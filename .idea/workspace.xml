@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04030414-b36d-4662-909c-16d7b690d38b" name="Default Changelist" comment="doc: 新的 logo 位置">
+    <list default="true" id="04030414-b36d-4662-909c-16d7b690d38b" name="Default Changelist" comment="feat: upgrade to 1.21">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/message_queue.go" beforeDir="false" afterPath="$PROJECT_DIR$/core/message_queue.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/consume.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/consume.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/subscribe.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/subscribe.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/subscriber.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/consumer.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +139,7 @@
       <workItem from="1722585484010" duration="8365000" />
       <workItem from="1722605194602" duration="1082000" />
       <workItem from="1722865489204" duration="2203000" />
-      <workItem from="1722908242382" duration="11212000" />
+      <workItem from="1722908242382" duration="15787000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 发布-订阅 模式，只有订阅后才可消费">
       <option name="closed" value="true" />
@@ -162,7 +165,111 @@
       <option name="project" value="LOCAL" />
       <updated>1722928535988</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="doc: 消息模型">
+      <option name="closed" value="true" />
+      <created>1722931251923</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1722931251923</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix: action yml">
+      <option name="closed" value="true" />
+      <created>1722932899711</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1722932899711</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix: action yml">
+      <option name="closed" value="true" />
+      <created>1722933114755</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1722933114755</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix: action yml workflow_dispatch">
+      <option name="closed" value="true" />
+      <created>1722933296699</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1722933296699</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix: action yml workflow_dispatch">
+      <option name="closed" value="true" />
+      <created>1722933338690</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1722933338690</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix: action yml">
+      <option name="closed" value="true" />
+      <created>1722933939680</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1722933939680</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix: action yml">
+      <option name="closed" value="true" />
+      <created>1722934209946</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1722934209946</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix: action yml">
+      <option name="closed" value="true" />
+      <created>1722934327511</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1722934327511</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat: upgrade to 1.21">
+      <option name="closed" value="true" />
+      <created>1722934572307</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1722934572307</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat: upgrade to 1.21">
+      <option name="closed" value="true" />
+      <created>1722934582408</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1722934582408</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat: upgrade to 1.21">
+      <option name="closed" value="true" />
+      <created>1722934969976</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1722934969976</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat: upgrade to 1.21">
+      <option name="closed" value="true" />
+      <created>1722935028566</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1722935028566</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat: upgrade to 1.21">
+      <option name="closed" value="true" />
+      <created>1722935188728</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1722935188728</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +281,11 @@
     <MESSAGE value="feat: 发布-订阅 模式，只有订阅后才可消费" />
     <MESSAGE value="doc: 贡献者 readme" />
     <MESSAGE value="doc: 新的 logo 位置" />
-    <option name="LAST_COMMIT_MESSAGE" value="doc: 新的 logo 位置" />
+    <MESSAGE value="doc: 消息模型" />
+    <MESSAGE value="fix: action yml workflow_dispatch" />
+    <MESSAGE value="fix: action yml" />
+    <MESSAGE value="feat: upgrade to 1.21" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: upgrade to 1.21" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
