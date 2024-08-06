@@ -4,26 +4,18 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04030414-b36d-4662-909c-16d7b690d38b" name="Default Changelist" comment="Default Changelist">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/consume.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/publish.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/message.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/response.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/queue/queue.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/ip_utils.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TrainMQ.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/train-mq.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="04030414-b36d-4662-909c-16d7b690d38b" name="Default Changelist" comment="feat: New Channel-Based Queue Structure">
+      <change afterPath="$PROJECT_DIR$/core/message_queue.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/subscribe.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/lock_free_queue.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/subscriber.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/info.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/queue.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/consume.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/consume.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/publish.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/publish.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/consumer.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/producer.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/queue/queue.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +52,7 @@
   "keyToString": {
     "DefaultGoTemplateProperty": "Go File",
     "Go 构建.go build TrainMQ.executor": "Run",
+    "Go 构建.go build train-mq.executor": "Debug",
     "Go 构建.go build trainMQ.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -91,13 +84,22 @@
       <recent name="C:\Project\TrainMQ" />
     </key>
   </component>
-  <component name="RunManager" selected="Go 构建.go build trainMQ">
+  <component name="RunManager" selected="Go 构建.go build train-mq">
     <configuration name="go build TrainMQ" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="train-mq" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
       <package value="TrainMQ" />
       <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build train-mq" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="train-mq" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="train-mq" />
+      <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/main.go" />
       <method v="2" />
     </configuration>
@@ -112,6 +114,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go 构建.go build train-mq" />
         <item itemvalue="Go 构建.go build trainMQ" />
         <item itemvalue="Go 构建.go build TrainMQ" />
       </list>
@@ -137,6 +140,8 @@
       <workItem from="1722503315239" duration="2801000" />
       <workItem from="1722585484010" duration="8365000" />
       <workItem from="1722605194602" duration="1082000" />
+      <workItem from="1722865489204" duration="2203000" />
+      <workItem from="1722908242382" duration="6073000" />
     </task>
     <servers />
   </component>

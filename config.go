@@ -8,12 +8,14 @@ import (
 
 // Config 结构体表示服务器的配置项。
 type Config struct {
-	Port int `yaml:"port"`
+	Port   int  `yaml:"port"`
+	Banner bool `yaml:"banner"`
 }
 
 // DefaultConfig 提供默认的配置。
 var DefaultConfig = Config{
-	Port: 5757,
+	Port:   5757,
+	Banner: true,
 }
 
 // LoadConfig 读取配置文件并返回 Config 结构体。

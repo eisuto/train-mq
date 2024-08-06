@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"train-mq/core"
 	"train-mq/handlers"
-	"train-mq/queue"
 )
 
 const ConfigFileName = "train-mq-config.yaml"
@@ -18,30 +18,36 @@ func main() {
 		log.Printf("加载配置文件失败: %v ", err)
 		return
 	}
-	port := config.Port
-	banner(port)
+
+	// Banner
+	if config.Banner {
+		banner()
+	}
 
 	// 创建消息队列
-	messageQueue := queue.NewMessageQueue()
+	messageQueue := core.NewMainMessageQueue()
 
+	log.Printf("TrainMQ launch successful! Now listening on port: %v", config.Port)
 	// 开启 HTTP 服务
 	http.HandleFunc("/publish", handlers.PublishHandler(messageQueue))
 	http.HandleFunc("/consume", handlers.ConsumeHandler(messageQueue))
-	err = http.ListenAndServe(":"+strconv.Itoa(port), nil)
+	http.HandleFunc("/subscribe", handlers.SubscribeHandler(messageQueue))
+	err = http.ListenAndServe(":"+strconv.Itoa(config.Port), nil)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 		return
 	}
+
 }
 
-func banner(port int) {
-	fmt.Printf(`
+func banner() {
+	fmt.Print(`
 /__  ___/                              /|    //| |     //    ) ) 
    / /   __      ___     ( )   __     //|   // | |    //    / /  
   / /  //  ) ) //   ) ) / / //   ) ) // |  //  | |   //    / /   
  / /  //      //   / / / / //   / / //  | //   | |  //  \ \ /    
 / /  //      ((___( ( / / //   / / //   |//    | | ((____\ \
-Launch successful! Now listening on port: %v`, port)
+`)
 	fmt.Println()
 
 }

@@ -3,13 +3,13 @@ package handlers
 import (
 	"log"
 	"net/http"
+	"train-mq/core"
 	"train-mq/models"
-	"train-mq/queue"
 	"train-mq/utils"
 )
 
 // ConsumeHandler 消息消费处理器
-func ConsumeHandler(queue *queue.MessageQueue) http.HandlerFunc {
+func ConsumeHandler(queue *core.MainMessageQueue) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodGet {
 			http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
@@ -22,6 +22,18 @@ func ConsumeHandler(queue *queue.MessageQueue) http.HandlerFunc {
 			models.WriteErrorResponse(w, http.StatusBadRequest, "Topic parameter is missing", nil)
 			return
 		}
+		subId := r.URL.Query().Get("subId")
+		if subId == "" {
+			models.WriteErrorResponse(w, http.StatusBadRequest, "SubId parameter is missing", nil)
+			return
+		}
+		// 只有订阅了当前主题，才能消费
+		hasSubscriber := queue.HasSubscriber(topic, subId)
+		if !hasSubscriber {
+			models.WriteErrorResponse(w, http.StatusForbidden, "Subscriber is not registered for this topic", nil)
+			log.Printf("Subscriber: %s is not registered for topic: %s", subId, topic)
+			return
+		}
 
 		// 消费
 		msg, ok := queue.Consume(topic)
@@ -30,7 +42,7 @@ func ConsumeHandler(queue *queue.MessageQueue) http.HandlerFunc {
 		clientIp := utils.GetClientIp(r)
 		if ok {
 			models.WriteSuccessResponse(w, "Consumed message successfully", msg)
-			log.Printf("Client IP: %s - Consumed message ID: %s, Topic: %s, Content: %s\n", clientIp, msg.ID, msg.Topic, msg.Content)
+			log.Printf("Client IP: %s - Consumed  message ID: %s, Topic: %s, Content: %s\n", clientIp, msg.ID, msg.Topic, msg.Content)
 		} else {
 			models.WriteSuccessResponse(w, "No messages available for topic: "+topic, []int{})
 			log.Printf("Client IP: %s - No messages available for topic: %s\n", clientIp, topic)

@@ -6,13 +6,13 @@ import (
 	"log"
 	"net/http"
 	"strings"
+	"train-mq/core"
 	"train-mq/models"
-	"train-mq/queue"
 	"train-mq/utils"
 )
 
 // PublishHandler 发布请求处理
-func PublishHandler(queue *queue.MessageQueue) http.HandlerFunc {
+func PublishHandler(queue *core.MainMessageQueue) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
 			http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
