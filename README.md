@@ -63,8 +63,10 @@ GET /consume?topic=test_topic
 ```
 
 
-## 🤝 贡献
-欢迎贡献！请 fork 本仓库并提交 pull request。
+## 🤝 贡献者
+<a href="https://github.com/eisuto/train-mq/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=eisuto/train-mq" />
+</a>
 
 ## 📄 许可证
 本项目基于 MIT 许可证开源 - 详细信息请参阅 LICENSE 文件。
