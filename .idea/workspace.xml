@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04030414-b36d-4662-909c-16d7b690d38b" name="Default Changelist" comment="feat: New Channel-Based Queue Structure">
-      <change afterPath="$PROJECT_DIR$/core/message_queue.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/subscribe.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/lock_free_queue.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/subscriber.go" afterDir="false" />
+    <list default="true" id="04030414-b36d-4662-909c-16d7b690d38b" name="Default Changelist" comment="doc: 贡献者 readme">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/consume.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/consume.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/publish.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/publish.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/queue/queue.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/logo2.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +28,9 @@
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="GoVcsConfiguration">
+    <option name="GO_FMT" value="false" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -61,6 +56,7 @@
     "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
     "git-widget-placeholder": "main",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
@@ -141,12 +137,36 @@
       <workItem from="1722585484010" duration="8365000" />
       <workItem from="1722605194602" duration="1082000" />
       <workItem from="1722865489204" duration="2203000" />
-      <workItem from="1722908242382" duration="6073000" />
+      <workItem from="1722908242382" duration="9527000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: 发布-订阅 模式，只有订阅后才可消费">
+      <option name="closed" value="true" />
+      <created>1722925129713</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1722925129713</updated>
+    </task>
+    <task id="LOCAL-00002" summary="doc: 贡献者 readme">
+      <option name="closed" value="true" />
+      <created>1722925712822</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1722925712822</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="feat: 发布-订阅 模式，只有订阅后才可消费" />
+    <MESSAGE value="doc: 贡献者 readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="doc: 贡献者 readme" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

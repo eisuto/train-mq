@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="/" alt="logo" >
-  <img src="https://github.com/eisuto/TrainMQ/blob/main/static/logo2.png?raw=true" width="200" />
+  <img src="https://images.mingming.dev/file/c8e9aa86f88ef5b4fe1b2.png" width="200" />
   </a>
   <br>
     TrainMQ
