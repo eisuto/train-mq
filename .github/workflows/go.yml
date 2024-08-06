@@ -4,7 +4,7 @@ on:
 
 jobs:
   releases-matrix:
-    name: Release Go Binary
+    name: Go Release Binaries
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -17,8 +17,7 @@ jobs:
           - goarch: arm64
             goos: windows
     steps:
-    - uses: actions/checkout@v3
-    - uses: wangyoucao577/go-release-action@v1.30
+    - uses: wangyoucao577/go-release-action@v1.51
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         goos: ${{ matrix.goos }}
