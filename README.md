@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="#">
-    <img src="https://img.shields.io/badge/version-0.0.2-blue">
+    <img src="https://img.shields.io/badge/version-0.0.5-blue">
   </a>
   <a href="#">
       <img src="https://img.shields.io/badge/build-passing-brightgreen">
@@ -22,6 +22,8 @@
 - 高吞吐量
 - 开箱即用
 ## 消息模型
+TrainMQ 的设计核心在于实现高效、无锁的多消费者消息队列。每个主题维护一个无锁队列，使用 Compare-And-Swap (CAS) 机制确保操作的原子性和线程安全。消费者在消费消息之前，必须先订阅相应的队列， 未订阅的队列无法进行消费操作 。 消费时通过记录每个消费者在订阅队列上的偏移量（offset），确保每次消费后偏移量自动递增，从而共享读取该队列的数据，实现无需复制队列内容的高效消费机制。
+
 ![MessageModel](https://images.mingming.dev/file/05e0ea4bc921e3c28af94.jpg)
 ## 📝 TODO
 - [x] 发布-订阅模式
