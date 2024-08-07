@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04030414-b36d-4662-909c-16d7b690d38b" name="Default Changelist" comment="doc: 排除 .idea">
+    <list default="true" id="04030414-b36d-4662-909c-16d7b690d38b" name="Default Changelist" comment="feat: 记录消费者信息">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/message_queue.go" beforeDir="false" afterPath="$PROJECT_DIR$/core/message_queue.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/consume.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/consume.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/publish.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/publish.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/subscribe.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/subscribe.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/lock_free_queue.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/lock_free_queue.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +143,7 @@
       <workItem from="1722605194602" duration="1082000" />
       <workItem from="1722865489204" duration="2203000" />
       <workItem from="1722908242382" duration="19086000" />
-      <workItem from="1722995132759" duration="1358000" />
+      <workItem from="1722995132759" duration="13513000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 发布-订阅 模式，只有订阅后才可消费">
       <option name="closed" value="true" />
@@ -285,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722936818914</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="feat: 记录消费者信息">
+      <option name="closed" value="true" />
+      <created>1722996631183</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1722996631183</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,7 +326,8 @@
     <MESSAGE value="feat: upgrade to 1.21" />
     <MESSAGE value="fix: 消费者ID -&gt; cid" />
     <MESSAGE value="doc: 排除 .idea" />
-    <option name="LAST_COMMIT_MESSAGE" value="doc: 排除 .idea" />
+    <MESSAGE value="feat: 记录消费者信息" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 记录消费者信息" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

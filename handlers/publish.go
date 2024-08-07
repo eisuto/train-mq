@@ -12,7 +12,7 @@ import (
 )
 
 // PublishHandler 发布请求处理
-func PublishHandler(queue *core.MainMessageQueue) http.HandlerFunc {
+func PublishHandler(context *core.MainContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
 			http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
@@ -26,7 +26,7 @@ func PublishHandler(queue *core.MainMessageQueue) http.HandlerFunc {
 		// 生成唯一ID
 		msg.ID = strings.ReplaceAll(uuid.NewString(), "-", "")
 		// 发布消息
-		queue.Publish(msg)
+		context.Publish(msg)
 		// 响应并记录日志
 		clientIP := utils.GetClientIp(r)
 		models.WriteSuccessResponse(w, "Published message successfully", msg)

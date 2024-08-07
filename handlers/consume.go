@@ -9,7 +9,7 @@ import (
 )
 
 // ConsumeHandler 消息消费处理器
-func ConsumeHandler(queue *core.MainMessageQueue) http.HandlerFunc {
+func ConsumeHandler(content *core.MainContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodGet {
 			http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
@@ -28,21 +28,26 @@ func ConsumeHandler(queue *core.MainMessageQueue) http.HandlerFunc {
 			return
 		}
 		// 只有订阅了当前主题，才能消费
-		hasConsumer := queue.HasConsumer(topic, cid)
+		hasConsumer := content.HasConsumer(topic, cid)
 		if !hasConsumer {
 			models.WriteErrorResponse(w, http.StatusForbidden, "Consumer is not registered for this topic", nil)
 			log.Printf("Consumer: %s is not registered for topic: %s", cid, topic)
 			return
 		}
-
+		consumer := content.GetConsumerByCid(cid)
+		offset, _ := consumer.TopicOffsetMap.Load(topic)
+		
 		// 消费
-		msg, ok := queue.Consume(topic)
+		msg, ok := content.Consume(topic, offset.(int))
+
+		// 消费后 offset+1
+		consumer.IncrementOffset(topic, 1)
 
 		// 响应并记录日志
 		clientIp := utils.GetClientIp(r)
 		if ok {
 			models.WriteSuccessResponse(w, "Consumed message successfully", msg)
-			log.Printf("Client IP: %s - Consumed  message ID: %s, Topic: %s, Content: %s\n", clientIp, msg.ID, msg.Topic, msg.Content)
+			log.Printf("Client IP: %s - Consumed  message ID: %s, Topic: %s, offset: %v\n", clientIp, msg.ID, msg.Topic, offset)
 		} else {
 			models.WriteSuccessResponse(w, "No messages available for topic: "+topic, []int{})
 			log.Printf("Client IP: %s - No messages available for topic: %s\n", clientIp, topic)

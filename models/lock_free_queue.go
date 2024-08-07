@@ -90,3 +90,21 @@ func (q *LockFreeQueue) Dequeue() (Message, bool) {
 		}
 	}
 }
+
+// PeekAt 获取队列中第 offset 位置的数据
+func (q *LockFreeQueue) PeekAt(offset int) (Message, bool) {
+	if offset < 0 {
+		return Message{}, false
+	}
+
+	current := q.head.next
+	for current != nil && offset > 0 {
+		current = current.next
+		offset--
+	}
+
+	if current != nil {
+		return current.value, true
+	}
+	return Message{}, false
+}

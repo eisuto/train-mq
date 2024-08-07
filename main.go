@@ -25,7 +25,7 @@ func main() {
 	}
 
 	// 创建消息队列
-	messageQueue := core.NewMainMessageQueue()
+	messageQueue := core.NewMainContext()
 
 	log.Printf("TrainMQ launch successful! Now listening on port: %v", config.Port)
 	// 开启 HTTP 服务
