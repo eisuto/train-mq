@@ -6,20 +6,21 @@ import (
 	"train-mq/models"
 )
 
-// MainMessageQueue 可并发消息队列结构体
+// MainMessageQueue 消息队列
 type MainMessageQueue struct {
-	topics    sync.Map // 存储主题和对应的无锁队列
-	consumers sync.Map // 存储主题和消费者信息
+	topicsQueue    sync.Map // 存储主题和对应的无锁队列
+	topicConsumers sync.Map // 存储主题和消费者信息
+	consumers      sync.Map // 存储消费者信息，cid -> consumer
 }
 
-// NewMainMessageQueue 创建一个新的可并发消息队列
+// NewMainMessageQueue 创建一个新的消息队列
 func NewMainMessageQueue() *MainMessageQueue {
 	return &MainMessageQueue{}
 }
 
 // GetQueue 获取指定主题的队列
 func (mmq *MainMessageQueue) GetQueue(topic string) (*models.LockFreeQueue, bool) {
-	queue, ok := mmq.topics.Load(topic)
+	queue, ok := mmq.topicsQueue.Load(topic)
 	if !ok {
 		return nil, false
 	}
@@ -32,7 +33,7 @@ func (mmq *MainMessageQueue) Publish(message models.Message) {
 	if !ok {
 		// 如果主题不存在则会被创建
 		queue = models.NewLockFreeQueue()
-		mmq.topics.Store(message.Topic, queue)
+		mmq.topicsQueue.Store(message.Topic, queue)
 	}
 	queue.Enqueue(message)
 }
@@ -50,29 +51,33 @@ func (mmq *MainMessageQueue) Consume(topic string) (models.Message, bool) {
 func (mmq *MainMessageQueue) RegisterConsumer(topic string, consumer models.Consumer) {
 	log.Printf("Attempting to register consumer: %v to topic: %s", consumer, topic)
 	hasConsumer := mmq.HasConsumer(topic, consumer.Cid)
+	// 如果订阅过则忽略，没订阅过则存储消费者信息
 	if hasConsumer {
-		// 如果已经订阅过则忽略
 		log.Printf("Consumer: %v is already registered, ignoring", consumer)
 		return
+	} else {
+		// 添加主题的消费者信息
+		consumers, _ := mmq.topicConsumers.LoadOrStore(topic, make([]models.Consumer, 0, 1))
+		consumerList := consumers.([]models.Consumer)
+		consumerList = append(consumerList, consumer)
+		mmq.topicConsumers.Store(topic, consumerList)
+		// 添加系统的消费者
+		sysConsumer, loaded := mmq.consumers.LoadOrStore(consumer.Cid, consumer)
+		if loaded {
+			// 如果消费者已存在，添加新主题
+			existingConsumer := sysConsumer.(models.Consumer)
+			existingConsumer.Topics = append(existingConsumer.Topics, topic)
+			mmq.consumers.Store(consumer.Cid, existingConsumer)
+		}
+
+		log.Printf("Successfully registered consumer: %v to topic: %s", consumer, topic)
 	}
-	// 如果没有订阅过则添加消费者信息
-	consumers, _ := mmq.consumers.Load(topic)
-	if consumers == nil {
-		consumers = make([]models.Consumer, 0)
-	}
-	existingConsumers := consumers.([]models.Consumer)
-	if existingConsumers == nil {
-		existingConsumers = make([]models.Consumer, 0)
-	}
-	existingConsumers = append(existingConsumers, consumer)
-	mmq.consumers.Store(topic, existingConsumers)
-	log.Printf("Successfully registered consumer: %v to topic: %s", consumer, topic)
 
 }
 
 // HasConsumer 判断主题是否有指定消费者
 func (mmq *MainMessageQueue) HasConsumer(topic string, cid string) bool {
-	consumers, _ := mmq.consumers.Load(topic)
+	consumers, _ := mmq.topicConsumers.Load(topic)
 	if consumers == nil {
 		return false
 	}
@@ -87,6 +92,6 @@ func (mmq *MainMessageQueue) HasConsumer(topic string, cid string) bool {
 
 // GetConsumers 获取指定主题的所有消费者
 func (mmq *MainMessageQueue) GetConsumers(topic string) []models.Consumer {
-	consumers, _ := mmq.consumers.Load(topic)
+	consumers, _ := mmq.topicConsumers.Load(topic)
 	return consumers.([]models.Consumer)
 }

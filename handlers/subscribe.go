@@ -15,7 +15,7 @@ import (
 func SubscribeHandler(queue *core.MainMessageQueue) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// 获取参数
-		var consumer models.Consumer
+		var consumer models.ConsumerRegister
 		if err := json.NewDecoder(r.Body).Decode(&consumer); err != nil {
 			models.WriteErrorResponse(w, http.StatusBadRequest, "Invalid request payload", nil)
 			return
@@ -30,7 +30,7 @@ func SubscribeHandler(queue *core.MainMessageQueue) http.HandlerFunc {
 		// 生成唯一ID
 		consumer.Cid = strings.ReplaceAll(uuid.NewString(), "-", "")
 		// 注册消费者
-		queue.RegisterConsumer(consumer.Topic, consumer)
+		queue.RegisterConsumer(consumer.Topic, models.Consumer{Cid: consumer.Cid, Topics: []string{consumer.Topic}})
 		// 响应并记录日志
 		clientIP := utils.GetClientIp(r)
 		models.WriteSuccessResponse(w, "Registered consumer successfully", consumer)
